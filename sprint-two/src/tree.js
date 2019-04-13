@@ -22,34 +22,34 @@ var Tree = function (value) {
   newTree.children = [];  // fix me
 
   _.extend(newTree, treeMethods);
-  console.log(newTree, newTree.value);
   return newTree;
 };
 
 var treeMethods = {};
 
 treeMethods.addChild = function (value) {
-  var tree = new Tree(value);
+  var tree = Tree(value);
   this.children.push(tree);
 
 };
 
 treeMethods.contains = function (target) {
 
-  var searching = function (tree) {
-    if (this.value === target) {
+  var searching = function (node) {
+    if (node.value === target) {
       return true;
-    } else if (this.children.length === 0) {
-      return false;
+    } else if (node.children.length === 0) {
+      return;
     }
-    else if (this.children.length > 0) {
-      for (var i = 0; i < this.children.length; i++) {
-        searching(this.children[i])
+    for (var i = 0; i < node.children.length; i++) {
+      if (searching(node.children[i]) === true) {
+        return true;
       }
-    } else {
-      return false;
     }
-  }
+    return false;
+  };
+
+  return searching(this);
 };
 
 
