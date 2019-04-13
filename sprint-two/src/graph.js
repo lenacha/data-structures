@@ -28,23 +28,30 @@ Graph.prototype.contains = function (node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function (node) {
-  for (var key in this.nodes) {
-    if (key === node.toString()) {
-
+  if (this.nodes[node]) {
+    var edges = this.nodes[node];
+    for (var i = 0; i < edges.length; i++) {
+      for (var j = 0; j < this.nodes[edges[i]].length; j++) {
+        if (this.nodes[edges[i]][j] === node) {
+          this.nodes[edges[i]].splice(j, 1)
+        }
+      }
     }
+    delete this.nodes[node]
   }
+  return;
 };
 
 // Returns a boolean indicating whether two specified  are connected.  Pass in the values contained in each of the two .
 Graph.prototype.hasEdge = function (fromNode, toNode) {
-  for (var key in this.nodes) {
-    var edges = this.nodes[key];
-    for (var i = 0; i < edges.length; i++) {
-      if (edges[i] === toNode) {
-        return true;
-      }
+
+  var edges = this.nodes[fromNode];
+  for (var i = 0; i < edges.length; i++) {
+    if (edges[i] === toNode) {
+      return true;
     }
   }
+
   return false;
 };
 
@@ -64,10 +71,27 @@ Graph.prototype.addEdge = function (fromNode, toNode) {
 // Remove an edge between any two specified (by value) .
 Graph.prototype.removeEdge = function (fromNode, toNode) {
 
+  var fromEdges = this.nodes[fromNode];
+  for (var i = 0; i < fromEdges.length; i++) {
+    if (fromEdges[i] === toNode) {
+      this.nodes[fromNode].splice(i, 1)
+    }
+  }
+  var toEdges = this.nodes[toNode];
+  for (var i = 0; i < toEdges.length; i++) {
+    if (toEdges[i] === fromNode) {
+      this.nodes[toNode].splice(i, 1)
+    }
+  }
+  return;
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function (cb) {
+  for (var key in this.nodes) {
+    cb(key)
+  }
+  return
 };
 
 /*
