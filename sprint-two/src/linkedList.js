@@ -1,10 +1,4 @@
-/*Bare Minimum Reqs:
-.head property, a linkedListNode instance
-.tail property, a linkedListNode instance
-[x].addToTail() method, takes a value and adds it to the end of the list
-[x].removeHead() method, removes the first node from the list and returns its value
-[].contains() method, returns boolean reflecting whether or not the passed-in value is in the linked list
-*/
+
 
 //define a function that creates a node
 

@@ -13,7 +13,6 @@ var Graph = function () {
 //will it have edges?
 Graph.prototype.addNode = function (node) {
   this.nodes[node] = [];
-  return;
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
