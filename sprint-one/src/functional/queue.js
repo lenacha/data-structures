@@ -3,6 +3,8 @@ var Queue = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
+  var firstIndex = 0
+  var lastIndex = 0
 
   var firstIndex = 0;
   var lastIndex = 0;
@@ -28,3 +30,5 @@ var Queue = function() {
 
   return someInstance;
 };
+
+

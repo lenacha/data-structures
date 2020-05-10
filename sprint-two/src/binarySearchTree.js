@@ -4,6 +4,8 @@ var BinarySearchTree = function(value) {
   this.right = null;
 };
 
+BinarySearchTree.prototype.insert = function (value) {
+  var bsTree = new BinarySearchTree(value);
 
 BinarySearchTree.prototype.insert = function (value) {
   var bsTree = new BinarySearchTree(value)
@@ -62,7 +64,6 @@ BinarySearchTree.prototype.depthFirstLog = function (cb) {
   }
   
   return traverse(this)
-  
 }
 /*
  * Complexity: What is the time complexity of the above functions?

@@ -3,7 +3,6 @@ var Stack = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
-
   var lastIndex = 0;
 
   // Implement the methods below

@@ -21,6 +21,19 @@ var LinkedList = function () {
     }
     return removed;
   };
+  //last node has a link reference to null
+  //head is not a node, but a reference to the first node
+  //if empty, head reference is null
+
+  list.contains = function (target) {
+    var currentNode = list.head;
+    while (currentNode) {
+      if (currentNode.value === target) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
 
   list.contains = function (target) {
     let pointer = list.head;

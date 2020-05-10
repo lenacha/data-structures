@@ -6,7 +6,11 @@ class Queue {
     this.firstIndex = 0;
     this.lastIndex = 0;
   }
-
+  enqueue(value){
+    this.storage[this.lastIndex] = value;
+    this.lastIndex++
+    return 
+  };
 
   enqueue (value) {
     this.storage[this.lastIndex] = value;
@@ -24,5 +28,4 @@ class Queue {
   size () {
     return this.lastIndex - this.firstIndex;
   };
-
 }

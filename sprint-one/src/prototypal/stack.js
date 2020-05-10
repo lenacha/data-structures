@@ -8,7 +8,27 @@ var Stack = function() {
   return someInstances;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  pop: function(){
+    var deleted;
+    if(this.lastIndex === 0) {
+      return
+    } else {
+      deleted = this.storage[this.lastIndex-1]
+      delete this.storage[this.lastIndex-1]
+      this.lastIndex--
+      return deleted
+    }
+  },
+  push: function(val){
+    this.storage[this.lastIndex] = val;
+    this.lastIndex++
+    return 
+  },
+  size: function(){
+    return this.lastIndex
+  }
+};
 
 stackMethods.push = function (value) {
   this.storage[this.lastIndex] = value;
