@@ -68,15 +68,6 @@ BinarySearchTree.prototype.depthFirstLog = function (cb) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-var binary = new BinarySearchTree(5)
-binary.insert(7)
-binary.insert(4)
-binary.insert(3)
-binary.insert(8)
-binary.insert(6)
-binary.insert(2)
-binary.insert(5)
-binary.insert(9)
 
 const findLargestLevel = function(node) {
   var sumForLevel = {}
@@ -127,5 +118,3 @@ const findLargestLevel = function(node) {
 
   return largestLevel
 };
-
-console.log(findLargestLevel(binary))
