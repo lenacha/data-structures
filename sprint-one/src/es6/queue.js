@@ -1,29 +1,31 @@
 class Queue {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  constructor(storage, firstIndex, lastIndex) {
+  constructor() {
     this.storage = {};
     this.firstIndex = 0;
     this.lastIndex = 0;
   }
-  enqueue(value){
+  enqueue(value) {
     this.storage[this.lastIndex] = value;
-    this.lastIndex++
-    return 
-  };
+    this.lastIndex++;
+    return;
+  }
 
-  dequeue(){
-    let deleted;
-    if(this.storage[this.firstIndex] === undefined) {
-      return
-    } else {
-      deleted = this.storage[this.firstIndex];
-      delete this.storage[this.firstIndex];
-      this.firstIndex++
-      return deleted;
+  enqueue(value) {
+    this.storage[this.lastIndex] = value;
+    this.lastIndex += 1;
+  }
+
+  dequeue() {
+    if (this.storage[this.firstIndex] !== undefined) {
+      let dequeued = this.storage[this.firstIndex];
+      this.firstIndex += 1;
+      return dequeued;
     }
-  };
+  }
+
   size() {
-    return this.lastIndex - this.firstIndex
-  };
+    return this.lastIndex - this.firstIndex;
+  }
 }

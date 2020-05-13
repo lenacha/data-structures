@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../../lib/jquery/jquery.js"></script>
+  <script src="../../../lib/underscore/underscore.js"></script>
+  <script src='./queue.js'></script>
+  <script src='./stack.js'></script>
+  <script>
+    $(document).ready(function(){
+
+      $('#queue').click(function(){
+        let collectionQueue = [];
+        for(let i = 0; i < 10000000; i++) {
+          collectionQueue.push(new Queue());
+        }
+        alert('Complete running Queue');
+      });
+      
+      $('#stack').click(function() {
+        let collectionStack = [];
+        for(let j = 0; j < 10000000; j++) {
+          collectionStack.push(new Stack());
+        }
+        alert('Complete running Stack');
+      });
+    });
+      
+
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <button id='queue'>Run es6 Queue</button>
+  <button id='stack'>Run es6 Stack</button>
+</body>
+</html>
