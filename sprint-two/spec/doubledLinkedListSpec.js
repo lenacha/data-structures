@@ -96,12 +96,8 @@ describe("doubledlinkedList", function () {
     doubledLinkedList.addToTail(5);
     expect(doubledLinkedList.head.value).to.equal(4);
     expect(doubledLinkedList.tail.value).to.equal(5); 
-    console.log('head', doubledLinkedList.head, 'tail', doubledLinkedList.tail)
     doubledLinkedList.removeHead();
-    console.log("head", doubledLinkedList.head, "tail", doubledLinkedList.tail);
-
     doubledLinkedList.removeHead();
-    console.log("head", doubledLinkedList.head, "tail", doubledLinkedList.tail);
     expect(doubledLinkedList.head).to.equal(null);
     expect(doubledLinkedList.tail).to.equal(null);
   });

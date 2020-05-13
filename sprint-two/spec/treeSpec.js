@@ -32,6 +32,24 @@ describe('tree', function () {
     expect(tree.children[0].children[0].value).to.equal(6);
   });
 
+  it("should be able to read parent from a tree\'s child", function () {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
+  });
+
+  it("should be able to remove parent from the node and remove node from parent\'s children", function () {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    tree.children[0].children[0].addChild(7);
+    expect(tree.children[0].children[0].children[0].parent.value).to.equal(6);
+    var child = tree.children[0].children[0].children[0];
+    tree.children[0].children[0].children[0].removeFromParent();
+    expect(child.value).to.equal(7);
+    expect(child.parent).to.equal(null);
+    expect(tree.children[0].children[0].children.includes(child)).to.equal(false);
+  });
+
   it('should correctly detect nested children', function () {
     tree.addChild(5);
     tree.addChild(6);
@@ -42,7 +60,6 @@ describe('tree', function () {
   });
   it('should expect no children for new tree', function () {
     tree.addChild(5);
-
     expect(tree.children[0].children).to.eql([]);
   });
 });
