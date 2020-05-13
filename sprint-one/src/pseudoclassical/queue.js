@@ -1,4 +1,4 @@
-var Queue = function() {
+var Queue = function () {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   this.storage = {};
@@ -6,25 +6,19 @@ var Queue = function() {
   this.lastIndex = 0;
 };
 
-Queue.prototype.enqueue = function(value){
+Queue.prototype.enqueue = function (value) {
   this.storage[this.lastIndex] = value;
-  this.lastIndex++
-  return 
+  this.lastIndex += 1;
 };
 
-Queue.prototype.dequeue = function(){
-  let deleted;
-  if(this.storage[this.firstIndex] === undefined) {
-    return
-  } else {
-    deleted = this.storage[this.firstIndex];
-    delete this.storage[this.firstIndex];
-    this.firstIndex++
-    return deleted;
+Queue.prototype.dequeue = function () {
+  if (this.storage[this.firstIndex] !== undefined) {
+    let dequeued = this.storage[this.firstIndex];
+    this.firstIndex += 1;
+    return dequeued;
   }
 };
 
-Queue.prototype.size = function() {
-  return this.lastIndex - this.firstIndex
-}
-
+Queue.prototype.size = function () {
+  return this.lastIndex - this.firstIndex;
+};

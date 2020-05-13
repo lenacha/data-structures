@@ -13,7 +13,7 @@
       $('#queue').click(function(){
         let collectionQueue = [];
         for(let i = 0; i < 10000000; i++) {
-          collectionQueue.push(Queue());
+          collectionQueue.push(new Queue());
         }
         alert('Complete running Queue');
       });
@@ -21,7 +21,7 @@
       $('#stack').click(function() {
         let collectionStack = [];
         for(let j = 0; j < 10000000; j++) {
-          collectionStack.push(Stack());
+          collectionStack.push(new Stack());
         }
         alert('Complete running Stack');
       });
