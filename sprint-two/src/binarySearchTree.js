@@ -70,6 +70,20 @@ BinarySearchTree.prototype.depthFirstLog = function (func) {
 
   return searchDepth(this);
 };
+
+BinarySearchTree.prototype.breadthFirstLog = function (func) {
+  let queue = [this];
+  while(queue.length > 0) {
+    let node = queue.shift();
+    if(node) {
+      func(node.value);
+      queue.push(node.left);
+      queue.push(node.right);
+    }
+  }
+}
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+ 
