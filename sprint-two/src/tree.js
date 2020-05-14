@@ -42,6 +42,21 @@ treeMethods.removeFromParent = function () {
   }
 }
 
+treeMethods.traverse = function (callback) {
+  let dfs = (node) => {
+    if(node.children.length === 0) {
+      return;
+    }
+    for(let i = 0; i < node.children.length; i++) {
+      dfs(node.children[i]);
+      let newValue = callback(node.children[i].value);
+      node.children[i].value = newValue;
+    }
+  }
+  dfs(this);
+  return;
+}
+
 
 
 /*

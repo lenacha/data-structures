@@ -62,4 +62,23 @@ describe('tree', function () {
     tree.addChild(5);
     expect(tree.children[0].children).to.eql([]);
   });
+
+  it("should correctly traverse all the nodes", function () {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(7);
+    tree.children[0].addChild(8);
+    tree.children[1].addChild(9);
+    var result = [];
+    tree.traverse((value) => {
+      if(!Number.isNaN(value)) {
+        value += 1;
+        result.push(value);
+      }
+      return value;
+    })
+
+    expect(tree.contains(10)).to.equal(true);
+    expect(JSON.stringify(result)).to.equal(JSON.stringify([9, 6, 10, 7, 8]));
+  });
 });

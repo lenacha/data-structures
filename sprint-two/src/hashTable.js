@@ -7,7 +7,6 @@ var HashTable = function () {
 
 HashTable.prototype.insert = function (k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  console.log(this._storage.get(index));
   if (this._storage.get(index) !== undefined) {
     let obj = this._storage.get(index);
     obj[k] = [k, v];
